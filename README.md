@@ -1,4 +1,4 @@
-# Inferencial Reproducibility Examination on [RoB-RT]() ([Barbieri et al., 2020]())
+# Inferencial Reproducibility Examination on [RoB-RT-hate]() ([Barbieri et al., 2020]())
 
 _Term project for HS Empirical Methods for NLP and Data Science (SS22 Uni HD)_
 
@@ -11,7 +11,7 @@ This project intends to examine the inferencial reproducibility of the SOTA mode
 
 In order to measure the inferential reproducibility of the SOTA model, this analysis conducts [Statistical Significance Test using Linear Mixed Effect Models]() and [Reliability Test of Model Prediction Performance]().
 
-The baseline is an SVM-based approach using both word and character n-gram features, a model and feature set that has seen great success in Twitter-based shared tasks such as emoji prediction [Çöltekin & Rama, 2018]() and stance prediction [Mohammad et al., 2018](). 
+The baseline is an SVM-based approach using both word and character n-gram features, a model and feature set that has seen great success in Twitter-based shared tasks such as emoji prediction ([Çöltekin & Rama, 2018]()) and stance prediction ([Mohammad et al., 2018]()). 
 
 The 
 
