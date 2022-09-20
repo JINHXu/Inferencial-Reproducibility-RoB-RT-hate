@@ -23,7 +23,7 @@ The
 
 - Flesch-Kincaid readability ([Kincaid et al., 1975]()): Pro-rates words/sentences and syllables/word; in principle unbounded, but interpretation scheme exists for ranges from 0 (difficult) to 100 (easy).
 
-- Sentence Length
+- Sentence Length: Number of tokens in each preprocessed/cleaned tweet.[^footnote]
 
 ### Meta-parameters?
 
@@ -49,3 +49,6 @@ Peter Kincaid, Robert P. Fishburne Jr., Richard L. Rogers, and Brad S. Chissom. 
 [Tübingen-Oslo at SemEval-2018 Task 2: SVMs perform better than RNNs in Emoji Prediction](https://aclanthology.org/S18-1004) (Çöltekin & Rama, SemEval 2018)
 
 [SemEval-2018 Task 1: Affect in Tweets](https://aclanthology.org/S18-1001) (Mohammad et al., SemEval 2018)
+
+[^footnote]: Preprocessing...
+
