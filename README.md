@@ -1,4 +1,4 @@
-# Inferencial-Reproducibility
+# Inferencial Reproducibility Examination on [RoB-RT]() ([Barbieri et al., 2020]())
 
 _Term project for HS Empirical Methods for NLP and Data Science (SS22 Uni HD)_
 
@@ -7,19 +7,28 @@ _Term project for HS Empirical Methods for NLP and Data Science (SS22 Uni HD)_
 **Author**: Jinghua Xu          
 
 
-This project intends to examine the inferencial reproducibility of the SOTA model proposed in [Barbieri et al., Findings 2020]() for hate speech detection. 
+This project intends to examine the inferencial reproducibility of the SOTA model proposed in [Barbieri et al., 2020]() for hate speech detection. 
 
-In order to 
+In order to measure the inferential reproducibility of the SOTA model, this analysis conducts [Statistical Significance Test using Linear Mixed Effect Models]() and [Reliability Test of Model Prediction Performance]().
+
+The baseline is an SVM-based approach using both word and character n-gram features, a model and feature set that has seen great success in Twitter-based shared tasks such as emoji prediction [Çöltekin & Rama, 2018]() and stance prediction [Mohammad et al., 2018](). 
+
+The 
+
+**The following lists the data properties, meta-parameters considered in this analysis:**
 
 ### Measuring Data: data properties to consider
 
-- Word rarity [Platanios et al., 2019]: Negative log of empirical probabilities of words in segment, higher value means higher rarity.
+- Word rarity ([Platanios et al., 2019]()): Negative log of empirical probabilities of words in segment, higher value means higher rarity.
 
-- Flesch-Kincaid readability [Kincaid et al., 1975]: Pro-rates words/sentences and syllables/word; in principle unbounded, but interpretation scheme exists for ranges from 0 (difficult) to 100 (easy).
+- Flesch-Kincaid readability ([Kincaid et al., 1975]()): Pro-rates words/sentences and syllables/word; in principle unbounded, but interpretation scheme exists for ranges from 0 (difficult) to 100 (easy).
 
 - Sentence Length
 
 ### Meta-parameters?
+
+* learning rate?
+* 
 
 ### Random Seeds?
 
@@ -37,3 +46,6 @@ Platanios, Emmanouil Antonios, et al. "Competence-based curriculum learning for 
 
 Peter Kincaid, Robert P. Fishburne Jr., Richard L. Rogers, and Brad S. Chissom. 1975. Derivation of New Readability Formulas (Automated Readability Index, Fog Count and Flesch Reading Ease Formula) for Navy Enlisted Personnel. Research Branch Report, Millington, TN: Chief of Naval Training.
 
+[Tübingen-Oslo at SemEval-2018 Task 2: SVMs perform better than RNNs in Emoji Prediction](https://aclanthology.org/S18-1004) (Çöltekin & Rama, SemEval 2018)
+
+[SemEval-2018 Task 1: Affect in Tweets](https://aclanthology.org/S18-1001) (Mohammad et al., SemEval 2018)
