@@ -15,44 +15,12 @@ from sklearn.utils import class_weight
 from sklearn.svm import LinearSVC
 from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import GridSearchCV
+from src.src import load_tweets, load_labels, preprocess
 
-
-def preprocess(text):
-    # unified tweet preprocessing in TWEETEVAL: anonymize user mentions, remove urls, remove line breaks
-    new_text = []
-    for t in text.split(" "):
-        t = '@user' if t.startswith('@') and len(t) > 1 else t
-        t = 'http' if t.startswith('http') else t
-        new_text.append(t)
-    return " ".join(new_text)
-
-
-def load_tweets(file_path):
-    # load tweets from text files
-    tweets = []
-    with open(file_path, 'r') as f:
-        lines = f.readlines()
-        for line in lines:
-            line = line.strip()
-            line = preprocess(line)
-            tweets.append(line)
-    return tweets
-
-
-def load_labels(file_path):
-    # load labels from txt to pd of ints
-    labels = []
-    with open(file_path, 'r') as f:
-        lines = f.readlines()
-        for line in lines:
-            line = line.strip()
-            line = int(line)
-            labels.append(line)
-    return labels
+# encoding class
 
 
 class Encoding:
-
     def __init__(self, gold_tok):
         self.gold_tok = gold_tok
 
@@ -92,7 +60,6 @@ if __name__ == '__main__':
     test_labels = load_labels(test_labels_path)
     test_txt = load_tweets(test_txt_path)
 
-
     # WORD & CHAR N-GRAMS FEATURES
     feats = Encoding(train_txt)
     word_ngrams_train = feats.word_ngrams(train_txt)
@@ -107,6 +74,7 @@ if __name__ == '__main__':
     feats_val = hstack([word_ngrams_val, char_ngrams_val])
     feats_test = hstack([word_ngrams_test, char_ngrams_test])
 
+    # search hyperparameters
     param_grid = {'C': [0.1, 1, 10, 100], 'dual': [True, False], 'loss': [
         'hinge', 'squared_hinge'], 'penalty': ['l1', 'l2'], 'max_iter': [100, 500, 1000, 1500, 2000], 'class_weight': ['balanced']}
     grid = GridSearchCV(LinearSVC(), param_grid,
