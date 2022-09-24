@@ -126,4 +126,4 @@ df = pd.DataFrame({'tweet_id': tweet_id, 'system': system, 'performance': perf, 
                    'length': tweet_len, 'frequency': frequency, 'readability': readability})  # 'word_rarity': rarity}
 
 opt_path = '/Users/xujinghua/Inferencial-Reproducibility-RoB-RT-hate/data/csv4analysis/baseline_sota.csv'
-df.to_csv(opt_path, encoding='utf-8')
+df.to_csv(opt_path, encoding='utf-8', index=False)
