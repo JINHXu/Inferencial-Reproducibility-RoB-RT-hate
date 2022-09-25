@@ -74,24 +74,26 @@ if __name__ == '__main__':
     feats_val = hstack([word_ngrams_val, char_ngrams_val])
     feats_test = hstack([word_ngrams_test, char_ngrams_test])
 
-    # search hyperparameters
-    param_grid = {'C': [0.1, 1, 10, 100], 'dual': [True, False], 'loss': [
-        'hinge', 'squared_hinge'], 'penalty': ['l1', 'l2'], 'max_iter': [100, 500, 1000, 1500, 2000], 'class_weight': ['balanced']}
-    grid = GridSearchCV(LinearSVC(), param_grid,
-                        refit=True, verbose=2, scoring='f1')
-    grid.fit(feats_train, train_labels)
-    print(grid.best_estimator_)
-    grid_predictions = grid.predict(feats_test)
+    # # search hyperparameters
+    # param_grid = {'C': [0.1, 1, 10, 100], 'dual': [True, False], 'loss': [
+    #     'hinge', 'squared_hinge'], 'penalty': ['l1', 'l2'], 'max_iter': [100, 500, 1000, 1500, 2000], 'class_weight': ['balanced']}
+    # grid = GridSearchCV(LinearSVC(), param_grid,
+    #                     refit=True, verbose=2, scoring='f1')
 
-    preds_path = '/Users/xujinghua/Inferencial-Reproducibility-RoB-RT-hate/data/predictions/svm_preds.txt'
-    parameters_path = '/Users/xujinghua/Inferencial-Reproducibility-RoB-RT-hate/data/svm_tuned_params.txt'
+    model = LinearSVC(C=1, class_weight='balanced', dual=False, max_iter=500, penalty='l1')
+    model.fit(feats_train, train_labels)
+    # print(grid.best_estimator_)
+    grid_predictions = model.predict(feats_test)
+
+    preds_path = '/Users/xujinghua/Inferencial-Reproducibility-RoB-RT-hate/data/predictions/svm_preds3.txt'
+    # parameters_path = '/Users/xujinghua/Inferencial-Reproducibility-RoB-RT-hate/data/svm_tuned_params.txt'
 
     with open(preds_path, 'w') as f:
         for grid_prediction in grid_predictions:
             f.write(str(grid_prediction)+'\n')
 
-    with open(parameters_path, 'w') as f:
-        f.write(grid.best_estimator_)
+    # with open(parameters_path, 'w') as f:
+    #     f.write(grid.best_estimator_)
 
     # print(f1_score(y_test, grid_predictions))
     # print(precision_score(y_test, grid_predictions))
