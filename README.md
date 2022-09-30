@@ -14,6 +14,6 @@ _Term project for HS Empirical Methods for NLP and Data Science (SS22 Uni HD)_
 
 ## Report \& Data
 
-- [Report]()
+- [Report](https://github.com/JINHXu/Inferencial-Reproducibility-RoB-RT-hate/blob/main/Inferential_Reproducibility_Report_Jinghua_Xu.pdf)
 
 - [Data](https://github.com/JINHXu/Inferencial-Reproducibility-RoB-RT-hate/tree/main/data)
