@@ -2,7 +2,7 @@
 
 _Term project for HS Empirical Methods for NLP and Data Science (SS22 Uni HD)_
 
-**Supervisor**: Prof. Dr. Stafan Riezler
+**Supervisor**: Prof. Dr. Stefan Riezler
 
 **Author**: Jinghua Xu      
 
